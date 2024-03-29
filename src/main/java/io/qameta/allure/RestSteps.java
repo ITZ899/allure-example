@@ -13,8 +13,8 @@ public class RestSteps {
 
     @Step("Close issue with title `{title}`")
     public void closeIssueWithTitle(final String owner, final String repo, final String title) {
-        step(String.format("GET /repos/%s/%s/issues?text=%s", owner, repo, title));
-        step(String.format("PATCH /repos/%s/%s/issues/%s", owner, repo, 10));
+        step("step1", () -> String.format("GET /repos/%s/%s/issues?text=%s", owner, repo, title));
+        step("step2", () -> String.format("PATCH /repos/%s/%s/issues/%s", owner, repo, 10));
     }
 
     @Step("Check note with content `{title}` exists")
