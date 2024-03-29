@@ -20,7 +20,7 @@ public class IssuesRestTest {
     @Microservice("Billing")
     @Tags({@Tag("api"), @Tag("smoke4")})
     @ParameterizedTest(name = "Create issue via api {0}")
-    @AllureId("183335")
+    @AllureId("289427")
     @ValueSource(strings = {"First Note", "Second Note"})
     public void shouldCreateUserNote(@Param(value = "Title,") String title) {
         steps.createIssueWithTitle(OWNER, REPO, title);
