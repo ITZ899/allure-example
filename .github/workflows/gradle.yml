@@ -20,7 +20,7 @@ on:
         required: false
 
 env:
-  ALLURE_ENDPOINT: https://testing.allure.aws.qameta.in
+  ALLURE_ENDPOINT: http://128.140.105.85:8080/
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
   ALLURE_PROJECT_ID: ${{ secrets.ALLURE_PROJECT_ID }}
   ALLURE_RESULTS: "build/allure-results"
