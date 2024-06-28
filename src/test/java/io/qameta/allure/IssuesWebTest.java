@@ -29,11 +29,12 @@ public class IssuesWebTest {
 
     @Test
     @TM4J("AE-T4")
+    @AllureId("288438")
     @Microservice("Repository")
     @Story("Create new issue")
     @Tags({@Tag("web"), @Tag("regress4")})
     @JiraIssues({@JiraIssue("AE-1")})
-    @DisplayName("Adding note to advertisement @allure.id=288438")
+    @DisplayName("Adding note to advertisement")
     public void shouldAddLabelToTheIssue() {
         steps.openIssuesPage(OWNER, REPO);
         steps.createIssueWithTitle(ISSUE_TITLE);
