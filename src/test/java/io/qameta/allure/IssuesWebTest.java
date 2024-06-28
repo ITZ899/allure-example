@@ -33,7 +33,7 @@ public class IssuesWebTest {
     @Story("Create new issue")
     @Tags({@Tag("web"), @Tag("regress4")})
     @JiraIssues({@JiraIssue("AE-1")})
-    @DisplayName("Adding note to advertisement")
+    @DisplayName("Adding note to advertisement @allure.id=288438")
     public void shouldAddLabelToTheIssue() {
         steps.openIssuesPage(OWNER, REPO);
         steps.createIssueWithTitle(ISSUE_TITLE);
