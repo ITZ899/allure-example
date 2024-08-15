@@ -8,22 +8,22 @@ body:
     attributes:
       label: "Context"
       description: "Main information about release"
-      value: "We should check if a new release can be published. \n
+      value: "We should check if a new release can be published.\n
               Stages to test the release: https://testing.testops.cloud/, https://testing.qatools.cloud"
   - type: textarea
     id: dod
     attributes:
       label: "Definition of Done"
       description: "Stages with the release candidate"
-      value: "- [ ]  All changes are retested \n
+      value: "- [ ]  All changes are retested\n
               - [ ]  The regression tests are passed"
   - type: textarea
     id: test_plans
     attributes:
       label: "Test plans"
       description: "Links to the manual and automated test plans and runs"
-      value: "Auto-tests: https://qameta.testops.cloud/launch/
-              Manual tests: https://qameta.testops.cloud/launch/
+      value: "Auto-tests: https://qameta.testops.cloud/launch/\n
+              Manual tests: https://qameta.testops.cloud/launch/\n
               No-code tests: https://app.getscandium.com/projects/9c6cd9be-c68a-4699-9cf6-77d010a98b6e/suites-results/"
   - type: textarea
     id: other_changes
