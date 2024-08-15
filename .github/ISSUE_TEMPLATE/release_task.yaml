@@ -1,5 +1,6 @@
 name: "Release"
 description: "Task to prepare a new release for deploying"
+title: "Release {type version}"
 assignees: [npolyakova]
 body:
   - type: textarea
@@ -7,7 +8,7 @@ body:
     attributes:
       label: "Context"
       description: "Main information about release"
-      value: "Tag: https://github.com/qameta/allure-server/releases/tag/
+      value: "Tag: https://github.com/qameta/allure-server/releases/tag/ \n
               Branch: https://github.com/qameta/allure-server/tree/release/"
   - type: textarea
     id: stages
@@ -20,10 +21,10 @@ body:
     attributes:
       label: "Related tasks"
       description: "Tasks we need to finish before deploying of the release"
-      value: "```[tasklist] | 
-              ### Related tasks |
-              - [ ] Regression testing |
-              - [ ] Smoke testing |
-              - [ ] Release notes |
-              - [ ] Merge release to the master branch |
+      value: "```[tasklist] \n 
+              ### Related tasks \n
+              - [ ] Regression testing \n
+              - [ ] Smoke testing \n
+              - [ ] Release notes \n
+              - [ ] Merge release to the master branch \n
               ```"
