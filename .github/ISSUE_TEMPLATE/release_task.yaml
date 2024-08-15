@@ -19,7 +19,7 @@ body:
   - type: textarea
     id: related_tasks
     attributes:
-      label: "Release task"
+      label: "Release tasks"
       description: "Tasks we need to finish before deploying of the release"
       value: "```[tasklist] \n 
               ### Related tasks \n
