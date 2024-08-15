@@ -1,0 +1,28 @@
+name: "Release"
+description: "Task to prepare a new release for deploying"
+assignees: [npolyakova]
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: "Context"
+      description: "Main information about release"
+      value: "Tag: https://github.com/qameta/allure-server/releases/tag/ | Branch: https://github.com/qameta/allure-server/tree/release/"
+  - type: textarea
+    id: stages
+    attributes:
+      label: "Stages for testing"
+      description: "Stages with the release candidad"
+      value: "- [ ] Testing | - [ ] Qatools testing"
+  - type: textarea
+    id: related_tasks
+    attributes:
+      label: "Related tasks"
+      description: "Tasks we need to finish before deploying of the release"
+      value: "```[tasklist] | 
+              ### Related tasks |
+              - [ ] Regression testing |
+              - [ ] Smoke testing |
+              - [ ] Release notes |
+              - [ ] Merge release to the master branch |
+              ```"
