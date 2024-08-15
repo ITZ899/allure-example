@@ -7,7 +7,8 @@ body:
     attributes:
       label: "Context"
       description: "Main information about release"
-      value: "Tag: https://github.com/qameta/allure-server/releases/tag/ | Branch: https://github.com/qameta/allure-server/tree/release/"
+      value: "Tag: https://github.com/qameta/allure-server/releases/tag/
+              Branch: https://github.com/qameta/allure-server/tree/release/"
   - type: textarea
     id: stages
     attributes:
