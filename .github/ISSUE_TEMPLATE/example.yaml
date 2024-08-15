@@ -1,35 +1,63 @@
-name: "Regression/smoke task"
-description: "Task to test the release"
-title: "Regression/Smoke testing {type version}"
+name: "🧱 Improvement"
+description: "Change that improves some user experience but can't be considered as a new feature"
 labels:
-  - "task:qa"
-assignees: [npolyakova]
+  - "task:improvement"
+assignees: []
 body:
   - type: textarea
     id: context
     attributes:
       label: "Context"
-      description: "Main information about release"
-      value: "We should check if a new release can be published.\n
-              Stages to test the release: https://testing.testops.cloud/, https://testing.qatools.cloud"
+      description: "Describe the context, problem, motivation of the issue. The description should answer the question:'What for? What problem, task are we solving?'"
+    validations:
+      required: true
   - type: textarea
-    id: dod
+    id: requirements
+    attributes:
+      label: "Requirements"
+      description: "Describe the proposed solution or what needs to be done in a way that is convenient for you: capabilities, use cases, user stories, technical requirements, non-functional requirements"
+    validations:
+      required: true
+  - type: textarea
+    id: definition_of_done
     attributes:
       label: "Definition of Done"
-      description: "Stages with the release candidate"
-      value: "- [ ]  All changes are retested\n
-              - [ ]  The regression tests are passed"
+      description: "A set of items that must be completed before an issue can be considered complete"
+    validations:
+      required: true
   - type: textarea
-    id: test_plans
+    id: additional_information
     attributes:
-      label: "Test plans"
-      description: "Links to the manual and automated test plans and runs"
-      value: "Auto-tests: https://qameta.testops.cloud/launch/\n
-              Manual tests: https://qameta.testops.cloud/launch/\n
-              No-code tests: https://app.getscandium.com/projects/9c6cd9be-c68a-4699-9cf6-77d010a98b6e/suites-results/"
+      label: "Additional Information"
+      description: "Add any task context here: a link to Figma, a description of the process in Notion, Miro, other artifacts and materials"
+    validations:
+      required: false
   - type: textarea
-    id: other_changes
+    id: release_notes
     attributes:
-      label: "Changes without testing doc"
-      description: "Links to the tasks that can't be covered with testing doc or the doc is not ready yet"
-      value: "- [ ] Link to the task"
+      label: "Release notes"
+      description: "Please describe what should be written about this task in the Release notes. You can use the examples below as a reference and replace the text in the brackets with details about the task"
+      value: "Improved the [OpenAPI documentation] for the [Allure TestOps API]. Now [API documentation] provides [information about the most relevant path for API methods used in Allure TestOps]."
+    validations:
+      required: false
+  - type: textarea
+    id: related_tasks
+    attributes:
+      label: "What is included in the scope"
+      description: "Specify links to related tasks: user stories, tasks, bugs and so on"
+      value: |
+        ```[tasklist]
+        ### Related tasks
+        ```
+    validations:
+      required: false
+  - type: textarea
+    id: related_feature_requests
+    attributes:
+      label: "Related feature requests"
+      description: "Specify links to related user requests"
+      placeholder: |
+        - [ ] [name of feature request_1](url)
+        - [ ] [name of feature request_2](url)
+    validations:
+      required: false

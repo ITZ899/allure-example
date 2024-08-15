@@ -1,49 +1,65 @@
-name: "🐞 Bug in production"
-description: "Bug in production environment"
-title: "[What] doesn't work? [Where] does it not work? [Under] what conditions?"
+name: "👷‍♂️ Story"
+description: "Description of the functionality of the software in simple and general words, compiled from the point of view of the end user"
+title: "As a [person], I want [the intention]"
 labels:
-  - "bug:production"
+  - "task:story"
 assignees: []
 body:
   - type: textarea
-    id: current_behaviour
+    id: context
     attributes:
-      label: "Current Behavior"
-      description: "Provide a description of the actual behavior with supporting screenshots or videos"
-    validations:
-      required: true
-  - type: textarea
-    id: expected_behaviour
-    attributes:
-      label: "Expected Behavior"
-      description: "Describe the desired behavior"
-    validations:
-      required: true
-  - type: textarea
-    id: steps_to_reproduction
-    attributes:
-      label: "Steps to reproduce"
-      description: "Detail the steps that would replicate this issue"
+      label: "Context"
+      description: "A summary of the user's intentions and what the product should do for him. Here you need to specify what the user wants to do and what his motivation is"
       placeholder: |
-        1. Go to '...'
-        2. Click on '....'
-        3. Scroll down to '....'
-        4. See error
+        - Format: As a [person], I want [the intention], to [user value]
+        - Example: As a user role, I want to be able to enter my credentials (login and password) on the authorization page to gain access to my account
     validations:
       required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: "Acceptance criteria"
+      description: "A set of conditions that must be met in order for the task to be considered completed"
+      placeholder: |
+        - When I enter the correct credentials (valid username and password), I successfully log in and go to the main page
+        - When I enter incorrect credentials (invalid username or password), I get an authorization error message
+        - When I click on the "Forgot Password" link, I go to the password recovery page
+        - When I don't enter the required fields (login or password), I get an error message indicating the reason
+    validations:
+      required: false
   - type: textarea
     id: additional_information
     attributes:
       label: "Additional Information"
-      description: "Add any additional context here: device, OS, browser, versions and so on"
-      value: "Browser with version: \n"
+      description: "Add any task context here: a link to Figma, a description of the process in Notion, Miro, other artifacts and materials"
     validations:
       required: false
   - type: textarea
-    id: related_tickets
+    id: release_notes
     attributes:
-      label: "Tickets"
-      description: "Specify links to related user tickets"
-      value: "```[tasklist] \n ### Tasks \n```"
+      label: "Release notes"
+      description: "Please describe what should be written about this task in the Release notes. You can use the examples below as a reference and replace the text in the brackets with details about the task"
+      placeholder: "Added [‘No assignee’ option] to [filters] in the [Launches/Tree section]. Previously it was possible to [filter only by known assignee — only tests with assignee were shown]."
+    validations:
+      required: false
+  - type: textarea
+    id: related_tasks
+    attributes:
+      label: "What is included in the scope"
+      description: "Specify links to related tasks: tasks, bugs and so on"
+      value: |
+        ```[tasklist]
+        ### Related tasks
+        ```
+    validations:
+      required: false
+  - type: textarea
+    id: related_feature_requests
+    attributes:
+      label: "Related feature requests"
+      description: "Specify links to related user requests"
+      placeholder: |
+        - [ ] [name of feature request_1](url)
+        - [ ] [name of feature request_2](url)
     validations:
       required: false
