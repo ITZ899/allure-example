@@ -1,33 +1,50 @@
-name: "Regression/smoke task"
-description: "Task to test the release"
-title: "Regression/Smoke testing {type version}"
-assignees: [npolyakova]
+name: "🐞 Bug in production"
+description: "Bug in production environment"
+title: "[What] doesn't work? [Where] does it not work? [Under] what conditions?"
+labels:
+  - "bug:production"
+assignees: []
 body:
   - type: textarea
-    id: context
+    id: current_behaviour
     attributes:
-      label: "Context"
-      description: "Main information about release"
-      value: "We should check if a new release can be published.\n
-              Stages to test the release: https://testing.testops.cloud/, https://testing.qatools.cloud"
+      label: "Current Behavior"
+      description: "Provide a description of the actual behavior with supporting screenshots or videos"
+    validations:
+      required: true
   - type: textarea
-    id: dod
+    id: expected_behaviour
     attributes:
-      label: "Definition of Done"
-      description: "Stages with the release candidate"
-      value: "- [ ]  All changes are retested\n
-              - [ ]  The regression tests are passed"
+      label: "Expected Behavior"
+      description: "Describe the desired behavior"
+    validations:
+      required: true
   - type: textarea
-    id: test_plans
+    id: steps_to_reproduction
     attributes:
-      label: "Test plans"
-      description: "Links to the manual and automated test plans and runs"
-      value: "Auto-tests: https://qameta.testops.cloud/launch/\n
-              Manual tests: https://qameta.testops.cloud/launch/\n
-              No-code tests: https://app.getscandium.com/projects/9c6cd9be-c68a-4699-9cf6-77d010a98b6e/suites-results/"
+      label: "Steps to reproduce"
+      description: "Detail the steps that would replicate this issue"
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
   - type: textarea
-    id: other_changes
+    id: additional_information
     attributes:
-      label: "Changes without testing doc"
-      description: "Links to the tasks that can't be covered with testing doc or the doc is not ready yet"
-      value: "- [ ] Link to the task"
+      label: "Additional Information"
+      description: "Add any additional context here: device, OS, browser, versions and so on"
+      value: "Browser with version: \n"
+    validations:
+      required: false
+  - type: textarea
+    id: related_tickets
+    attributes:
+      description: "Specify links to related user tickets"
+      placeholder: "```[tasklist] \n
+                    ### Tasks \n
+                    ```"
+    validations:
+      required: false
