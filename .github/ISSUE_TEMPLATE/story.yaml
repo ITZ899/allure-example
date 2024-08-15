@@ -38,8 +38,8 @@ body:
     id: release_notes
     attributes:
       label: "Release notes"
-      description: "What should the user know about this feature?"
-      placeholder: "Added [‘No assignee’ option] to [filters] in the [Launches/Tree section]. Previously it was possible to [filter only by known assignee — only tests with assignee were shown]."
+      description: "Please describe what should be written about this task in the Release notes. You can use the examples below as a reference and replace the text in the brackets with details about the task."
+      value: "Added [‘No assignee’ option] to [filters] in the [Launches/Tree section]. Previously it was possible to [filter only by known assignee — only tests with assignee were shown]."
     validations:
       required: false
   - type: textarea
