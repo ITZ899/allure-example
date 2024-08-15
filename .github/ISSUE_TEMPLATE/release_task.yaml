@@ -1,6 +1,6 @@
-name: "Release"
-description: "Task to prepare a new release for deploying"
-title: "Release {type version}"
+name: "Regression/smoke task"
+description: "Task to test the release"
+title: "Regression/Smoke testing {type version}"
 assignees: [npolyakova]
 body:
   - type: textarea
@@ -8,23 +8,26 @@ body:
     attributes:
       label: "Context"
       description: "Main information about release"
-      value: "Tag: https://github.com/qameta/allure-server/releases/tag/ \n
-              Branch: https://github.com/qameta/allure-server/tree/release/"
+      value: "We should check if a new release can be published. \n
+              Stages to test the release: https://testing.testops.cloud/, https://testing.qatools.cloud"
   - type: textarea
-    id: stages
+    id: dod
     attributes:
-      label: "Stages for testing"
-      description: "Stages with the release candidad"
-      value: "- [ ] Testing \n - [ ] Qatools testing"
+      label: "Definition of Done"
+      description: "Stages with the release candidate"
+      value: "- [ ]  All changes are retested \n
+              - [ ]  The regression tests are passed"
   - type: textarea
-    id: related_tasks
+    id: test_plans
     attributes:
-      label: "Related tasks"
-      description: "Tasks we need to finish before deploying of the release"
-      value: "```[tasklist] \n 
-              ### Related tasks \n
-              - [ ] Regression testing \n
-              - [ ] Smoke testing \n
-              - [ ] Release notes \n
-              - [ ] Merge release to the master branch \n
-              ```"
+      label: "Test plans"
+      description: "Links to the manual and automated test plans and runs"
+      value: "Auto-tests: https://qameta.testops.cloud/launch/
+              Manual tests: https://qameta.testops.cloud/launch/
+              No-code tests: https://app.getscandium.com/projects/9c6cd9be-c68a-4699-9cf6-77d010a98b6e/suites-results/"
+  - type: textarea
+    id: other_changes
+    attributes:
+      label: "Changes without testing doc"
+      description: "Links to the tasks that can't be covered with testing doc or the doc is not ready yet"
+      value: "- [ ] Link to the task"
