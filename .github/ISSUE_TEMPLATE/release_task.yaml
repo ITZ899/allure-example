@@ -1,49 +1,29 @@
-name: "🐞 Bug in production"
-description: "Bug in production environment"
-title: "[What] doesn't work? [Where] does it not work? [Under] what conditions?"
-labels:
-  - "bug:production"
-assignees: []
+name: "Release"
+description: "Task to prepare a new release for deploying"
+title: "Release {type version}"
+assignees: [npolyakova, jonesnataly, vdvukhzhilov]
 body:
   - type: textarea
-    id: current_behaviour
+    id: context
     attributes:
-      label: "Current Behavior"
-      description: "Provide a description of the actual behavior with supporting screenshots or videos"
-    validations:
-      required: true
+      label: "Context"
+      description: "Main information about release"
+      value: "Tag: https://github.com/qameta/allure-server/releases/tag/ \n
+              Branch: https://github.com/qameta/allure-server/tree/release/"
   - type: textarea
-    id: expected_behaviour
+    id: stages
     attributes:
-      label: "Expected Behavior"
-      description: "Describe the desired behavior"
-    validations:
-      required: true
+      label: "Stages for testing"
+      description: "Stages with the release candidate"
+      value: "- [ ] Testing \n - [ ] Qatools testing"
   - type: textarea
-    id: steps_to_reproduction
+    id: related_tasks
     attributes:
-      label: "Steps to reproduce"
-      description: "Detail the steps that would replicate this issue"
-      placeholder: |
-        1. Go to '...'
-        2. Click on '....'
-        3. Scroll down to '....'
-        4. See error
-    validations:
-      required: true
-  - type: textarea
-    id: additional_information
-    attributes:
-      label: "Additional Information"
-      description: "Add any additional context here: device, OS, browser, versions and so on"
-      placeholder: "Browser with version: "
-    validations:
-      required: false
-  - type: textarea
-    id: related_tickets
-    attributes:
-      label: "Tickets"
-      description: "Specify links to related user tickets"
-      value: "```[tasklist] \n### Tasks \n```"
-    validations:
-      required: false
+      description: "Tasks we need to finish before deploying of the release"
+      value: "```[tasklist] \n 
+              ### Related tasks \n
+              - [ ] Regression testing \n
+              - [ ] Smoke testing \n
+              - [ ] Release notes \n
+              - [ ] Merge release to the master branch \n
+              ```"
