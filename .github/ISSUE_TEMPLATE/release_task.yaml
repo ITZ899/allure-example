@@ -42,6 +42,7 @@ body:
   - type: textarea
     id: related_tickets
     attributes:
+      label: ""
       description: "Specify links to related user tickets"
       placeholder: "```[tasklist] \n
                     ### Tasks \n
