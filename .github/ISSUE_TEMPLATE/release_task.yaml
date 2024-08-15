@@ -14,7 +14,7 @@ body:
     attributes:
       label: "Stages for testing"
       description: "Stages with the release candidad"
-      value: "- [ ] Testing | - [ ] Qatools testing"
+      value: "- [ ] Testing \n - [ ] Qatools testing"
   - type: textarea
     id: related_tasks
     attributes:
