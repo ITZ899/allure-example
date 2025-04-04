@@ -20,7 +20,6 @@ public class IssuesRestTest {
     @Microservice("Billing")
     @Tags({@Tag("api"), @Tag("smoke4")})
     @ParameterizedTest(name = "Create issue via api {0}")
-    @AllureId("183335")
     @ValueSource(strings = {"First Note", "Second Note"})
     public void shouldCreateUserNote(@Param(value = "Title,") String title) {
         steps.createIssueWithTitle(OWNER, REPO, title);
@@ -33,7 +32,7 @@ public class IssuesRestTest {
     @Tags({@Tag("web"), @Tag("regress4")})
     @JiraIssues({@JiraIssue("AE-1")})
     @ParameterizedTest(name = "Close issue via api")
-    @ValueSource(strings = {"First Note", "Second Note"})
+    @ValueSource(strings = {"First Note", "Second Note", "Third Note", "Fourth Note"})
     public void shouldDeleteUserNote(@Param(value = "Title") String title) {
         steps.createIssueWithTitle(OWNER, REPO, title);
         steps.closeIssueWithTitle(OWNER, REPO, title);
