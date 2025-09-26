@@ -17,7 +17,7 @@ import static io.qameta.allure.Allure.step;
 
     @Test
     @AllureId("9251")
-    @DisplayName("Some test")
+    @DisplayName("Some test why not")
         @Description(useJavaDoc = true)
         public void test1667306661111() {
             step("some step name https://www");
