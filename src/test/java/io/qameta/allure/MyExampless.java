@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static io.qameta.allure.Allure.step;
 
 @org.junit.jupiter.api.DisplayName("TTempTests.class unit tests")
-    public class MyExamples {
+    public class MyExampless {
 
 
     /**
