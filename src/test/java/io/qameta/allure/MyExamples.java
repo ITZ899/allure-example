@@ -16,7 +16,6 @@ import static io.qameta.allure.Allure.step;
      */
 
     @Test
-    @AllureId("9251")
     @DisplayName("Some test why not")
         @Description(useJavaDoc = true)
         public void test1667306661111() {
@@ -31,7 +30,7 @@ import static io.qameta.allure.Allure.step;
         }
 
     @Test
-    @DisplayName("new test")
+    @DisplayName("new test pupupu")
     @Owner("daniil@qameta.io")
     @Feature("Issues123")
     void testFromTestops() {
