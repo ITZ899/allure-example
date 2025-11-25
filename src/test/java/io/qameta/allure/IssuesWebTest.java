@@ -43,7 +43,7 @@ public class IssuesWebTest {
     @Test
     @TM4J("AE-T5")
     @Microservice("Repository")
-    @Feature("Issues")
+    //@Feature("Issues")
     @Story("Close existing issue")
     @Tags({@Tag("web"), @Tag("regress4")})
     @JiraIssues({@JiraIssue("AE-1")})
