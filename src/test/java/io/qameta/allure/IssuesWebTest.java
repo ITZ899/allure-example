@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  */
 @Layer("web")
 @Owner("eroshenkoam")
-@Feature("Issues")
+//@Feature("Issues")
 public class IssuesWebTest {
 
     private static final String OWNER = "allure-framework, not-allure-framework";
@@ -43,10 +43,23 @@ public class IssuesWebTest {
     @Test
     @TM4J("AE-T5")
     @Microservice("Repository")
+    @Feature("Issues")
     @Story("Close existing issue")
     @Tags({@Tag("web"), @Tag("regress4")})
     @JiraIssues({@JiraIssue("AE-1")})
     @DisplayName("Closing new issue for authorized user")
+    public void shouldCloseIssue() {
+        steps.openIssuesPage(OWNER, REPO);
+        steps.createIssueWithTitle(ISSUE_TITLE);
+        steps.closeIssueWithTitle(ISSUE_TITLE);
+        steps.shouldNotSeeIssueWithTitle(ISSUE_TITLE);
+    }
+
+    @Test
+    @Microservice("Repository")
+    @Story("Close existing issue")
+    @Tags({@Tag("web"), @Tag("regress4")})
+    @DisplayName("Closing new issue for authorized user - ADMIN")
     public void shouldCloseIssue() {
         steps.openIssuesPage(OWNER, REPO);
         steps.createIssueWithTitle(ISSUE_TITLE);
