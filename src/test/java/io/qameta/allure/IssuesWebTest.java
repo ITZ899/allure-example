@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  */
 @Layer("web")
 @Owner("eroshenkoam")
-//@Feature("Issues")
+@Feature("Issues")
 public class IssuesWebTest {
 
     private static final String OWNER = "allure-framework, not-allure-framework";
@@ -43,7 +43,6 @@ public class IssuesWebTest {
     @Test
     @TM4J("AE-T5")
     @Microservice("Repository")
-    //@Feature("Issues")
     @Story("Close existing issue")
     @Tags({@Tag("web"), @Tag("regress4")})
     @JiraIssues({@JiraIssue("AE-1")})
