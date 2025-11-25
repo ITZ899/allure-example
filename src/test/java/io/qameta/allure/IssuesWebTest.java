@@ -59,7 +59,7 @@ public class IssuesWebTest {
     @Story("Close existing issue")
     @Tags({@Tag("web"), @Tag("regress4")})
     @DisplayName("Closing new issue for authorized user - ADMIN")
-    public void shouldCloseIssue() {
+    public void shouldCloseIssue2() {
         steps.openIssuesPage(OWNER, REPO);
         steps.createIssueWithTitle(ISSUE_TITLE);
         steps.closeIssueWithTitle(ISSUE_TITLE);
