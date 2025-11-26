@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 @Layer("rest")
 @Owner("baev")
-@Feature("Issues")
+//@Feature("Issues")
 public class IssuesRestTest {
 
     private static final String OWNER = "allure-framework, not-allure-framework";
@@ -27,6 +27,7 @@ public class IssuesRestTest {
     }
 
     @TM4J("AE-T2")
+    @Feature("Issues")
     @Story("Close existing issue")
     @Microservice("Repository")
     @Tags({@Tag("web"), @Tag("regress4")})
