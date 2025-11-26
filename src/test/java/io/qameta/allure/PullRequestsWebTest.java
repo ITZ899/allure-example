@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  */
 @Layer("web")
 @Owner("eroshenkoam")
-@Feature("Pull Requests")
+//@Feature("Pull Requests")
 public class PullRequestsWebTest {
 
     private static final String OWNER = "allure-framework, not-allure-framework";
