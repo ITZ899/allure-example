@@ -45,6 +45,7 @@ public class PullRequestsWebTest {
     @TM4J("AE-T7")
     @JiraIssue("AE-2")
     @Microservice("Repository")
+    @Feature("Pull Requests")
     @Story("Close existing pull request")
     @Tags({@Tag("web"), @Tag("regress4")})
     @DisplayName("Deleting existing issue for authorized user")
