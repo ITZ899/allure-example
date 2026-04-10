@@ -1,0 +1,11 @@
+{
+  "name": "allure-example",
+  "private": true,
+  "devDependencies": {
+    "allure": "^3.3.1"
+  },
+  "scripts": {
+    "allure:generate": "allure generate build/allure-results --output build/allure-report-v3",
+    "allure:serve": "allure serve build/allure-results"
+  }
+}

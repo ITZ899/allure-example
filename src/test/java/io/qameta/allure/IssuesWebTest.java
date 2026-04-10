@@ -6,10 +6,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
  * @author eroshenkoam (Artem Eroshenko).
  */
+@ExtendWith(FlakyLabelExtension.class)
 @Layer("web")
 @Owner("eroshenkoam")
 @Feature("Issues")
@@ -28,6 +30,7 @@ public class IssuesWebTest {
     }
 
     @Test
+    @Flaky
     @TM4J("AE-T4")
     @Microservice("Repository")
     @Story("Create new issue")
