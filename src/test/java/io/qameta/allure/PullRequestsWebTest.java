@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  */
 @Layer("web")
 @Owner("eroshenkoam")
-@Feature("Pull Requests")
+//@Feature("Pull Requests")
 public class PullRequestsWebTest {
 
     private static final String OWNER = "allure-framework, not-allure-framework";
@@ -28,6 +28,7 @@ public class PullRequestsWebTest {
     }
 
     @Test
+    @AllureId("8")
     @TM4J("AE-T6")
     @Microservice("Billing")
     @Story("Create new pull request")
@@ -44,6 +45,7 @@ public class PullRequestsWebTest {
     @TM4J("AE-T7")
     @JiraIssue("AE-2")
     @Microservice("Repository")
+    @Feature("Pull Requests")
     @Story("Close existing pull request")
     @Tags({@Tag("web"), @Tag("regress4")})
     @DisplayName("Deleting existing issue for authorized user")

@@ -6,10 +6,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
  * @author eroshenkoam (Artem Eroshenko).
  */
+@ExtendWith(FlakyLabelExtension.class)
 @Layer("web")
 @Owner("eroshenkoam")
 @Feature("Issues")
@@ -28,6 +30,7 @@ public class IssuesWebTest {
     }
 
     @Test
+    @Flaky
     @TM4J("AE-T4")
     @Microservice("Repository")
     @Story("Create new issue")
@@ -48,6 +51,18 @@ public class IssuesWebTest {
     @JiraIssues({@JiraIssue("AE-1")})
     @DisplayName("Closing new issue for authorized user")
     public void shouldCloseIssue() {
+        steps.openIssuesPage(OWNER, REPO);
+        steps.createIssueWithTitle(ISSUE_TITLE);
+        steps.closeIssueWithTitle(ISSUE_TITLE);
+        steps.shouldNotSeeIssueWithTitle(ISSUE_TITLE);
+    }
+
+    @Test
+    @Microservice("Repository")
+    @Story("Close existing issue")
+    @Tags({@Tag("web"), @Tag("regress4")})
+    @DisplayName("Closing new issue for authorized user - ADMIN")
+    public void shouldCloseIssue2() {
         steps.openIssuesPage(OWNER, REPO);
         steps.createIssueWithTitle(ISSUE_TITLE);
         steps.closeIssueWithTitle(ISSUE_TITLE);
