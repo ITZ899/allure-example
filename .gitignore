@@ -1,0 +1,8 @@
+# Idea
+.idea
+*.im;
+
+# Gradle
+.gradle
+build
+node_modules
