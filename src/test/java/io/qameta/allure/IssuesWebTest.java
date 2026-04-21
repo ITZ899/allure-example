@@ -36,7 +36,6 @@ public class IssuesWebTest {
     @Story("Create new issue")
     @Tags({@Tag("web"), @Tag("regress4")})
     @JiraIssues({@JiraIssue("AE-1")})
-    @AllureId("382240")
     @DisplayName("Adding note to advertisement")
     public void shouldAddLabelToIssue() {
         steps.openIssuesPage(OWNER, REPO);
@@ -44,19 +43,19 @@ public class IssuesWebTest {
         steps.shouldSeeIssueWithTitle(ISSUE_TITLE);
     }
 
-    // @Test
-    // @TM4J("AE-T5")
-    // @Microservice("Repository")
-    // @Story("Close existing issue")
-    // @Tags({@Tag("web"), @Tag("regress4")})
-    // @JiraIssues({@JiraIssue("AE-1")})
-    // @DisplayName("Closing new issue for authorized user")
-    // public void shouldCloseIssue() {
-    //     steps.openIssuesPage(OWNER, REPO);
-    //     steps.createIssueWithTitle(ISSUE_TITLE);
-    //     steps.closeIssueWithTitle(ISSUE_TITLE);
-    //     steps.shouldNotSeeIssueWithTitle(ISSUE_TITLE);
-    // }
+    @Test
+    @TM4J("AE-T5")
+    @Microservice("Repository")
+    @Story("Close existing issue")
+    @Tags({@Tag("web"), @Tag("regress4")})
+    @JiraIssues({@JiraIssue("AE-1")})
+    @DisplayName("Closing new issue for authorized user")
+    public void shouldCloseIssue() {
+        steps.openIssuesPage(OWNER, REPO);
+        steps.createIssueWithTitle(ISSUE_TITLE);
+        steps.closeIssueWithTitle(ISSUE_TITLE);
+        steps.shouldNotSeeIssueWithTitle(ISSUE_TITLE);
+    }
 
     @Test
     @Microservice("Repository")
