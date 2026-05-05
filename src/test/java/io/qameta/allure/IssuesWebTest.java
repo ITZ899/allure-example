@@ -30,7 +30,7 @@ public class IssuesWebTest {
     }
 
     @Test
-    @Flaky
+    //@Flaky
     @TM4J("AE-T4")
     @Microservice("Repository")
     @Story("Create new issue")
