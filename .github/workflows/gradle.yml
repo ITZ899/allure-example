@@ -39,6 +39,9 @@ jobs:
       - name: install and configure allurectl
         uses: allure-framework/setup-allurectl@v1
         with:
+          # Pin below 2.22.0: that release uploads process globals via
+          # POST /api/launch/attachment, which currently returns 500 on TestOps.
+          allurectl-version: "2.21.1"
           allure-endpoint: ${{ secrets.ALLURE_ENDPOINT }}
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: ${{ secrets.ALLURE_PROJECT_ID }}
