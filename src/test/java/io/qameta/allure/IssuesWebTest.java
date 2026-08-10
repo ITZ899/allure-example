@@ -44,7 +44,6 @@ public class IssuesWebTest {
     }
 
     @Test
-    @Flaky
     @TM4J("AE-T5")
     @Microservice("Repository")
     @Story("Close existing issue")
@@ -59,7 +58,6 @@ public class IssuesWebTest {
     }
 
     @Test
-    @Flaky
     @Microservice("Repository")
     @Story("Close existing issue")
     @Tags({@Tag("web"), @Tag("regress4")})
