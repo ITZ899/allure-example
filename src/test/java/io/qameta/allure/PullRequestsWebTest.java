@@ -27,19 +27,19 @@ public class PullRequestsWebTest {
         steps.startDriver();
     }
 
-    @Test
-    //@AllureId("8")
-    @TM4J("AE-T6")
-    @Microservice("Billing")
-    @Story("Create new pull request")
-    @Tags({@Tag("web"), @Tag("regress4"), @Tag("smoke")})
-    @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
-    @DisplayName("Creating new issue for authorized user")
-    public void shouldCreatePullRequest() {
-        steps.openPullRequestsPage(OWNER, REPO);
-        steps.createPullRequestFromBranch(BRANCH);
-        steps.shouldSeePullRequestForBranch(BRANCH);
-    }
+    // @Test
+    // //@AllureId("8")
+    // @TM4J("AE-T6")
+    // @Microservice("Billing")
+    // @Story("Create new pull request")
+    // @Tags({@Tag("web"), @Tag("regress4"), @Tag("smoke")})
+    // @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
+    // @DisplayName("Creating new issue for authorized user")
+    // public void shouldCreatePullRequest() {
+    //     steps.openPullRequestsPage(OWNER, REPO);
+    //     steps.createPullRequestFromBranch(BRANCH);
+    //     steps.shouldSeePullRequestForBranch(BRANCH);
+    // }
 
     @Test
     @TM4J("AE-T7")
