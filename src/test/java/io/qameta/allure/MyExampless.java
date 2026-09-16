@@ -29,22 +29,23 @@ import static io.qameta.allure.Allure.step;
         step(" temporaryRedirectWith www\n ");
         }
 
-    // @Test
-    // @DisplayName("new test pupupu")
-    // @Owner("daniil@qameta.io")
-    // @Feature("Issues123")
-    // void testFromTestops() {
-    //     step("step 1");
-    //     step("step 2");
-    //     step("step 3", () -> {
-    //         step("sub step");
-    //     });
-    //     step("step sleep 60", () -> {
-    //         Thread.sleep(60000);
-    //         step("sub step");
-    //     });
+    @Test
+    @DisplayName("new test pupupu")
+    @Owner("daniil@qameta.io")
+    @Feature("Issues123")
+    @AllureId("457310")
+    void testFromTestops() {
+        step("step 1");
+        step("step 2");
+        step("step 3", () -> {
+            step("sub step");
+        });
+        step("step sleep 60", () -> {
+            Thread.sleep(60000);
+            step("sub step");
+        });
 
-    //}
+    }
 
 
 }
