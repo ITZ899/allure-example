@@ -34,7 +34,7 @@ import static io.qameta.allure.Allure.step;
     @Owner("daniil@qameta.io")
     @Feature("Issues123")
     @AllureId("457310")
-    void testFromTestops() {
+    void newTestPupupu() {
         step("step 1");
         step("step 2");
         step("step 3", () -> {
