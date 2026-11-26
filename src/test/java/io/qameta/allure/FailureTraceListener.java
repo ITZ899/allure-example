@@ -16,34 +16,72 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Для упавшего или сломанного теста сохраняет стек в {@code statusDetails.trace}
- * и прикладывает его вложением {@code trace}.
+ * Для упавшего веб-теста прикладывает Playwright trace.zip
+ * ({@code npx playwright show-trace path/to/trace.zip}).
+ * Если браузера не было, сохраняет текстовый стек.
  */
 public final class FailureTraceListener implements TestLifecycleListener {
 
     @Override
     public void afterTestStop(final TestResult result) {
+        final Path traceZip = WebSteps.takeTraceZip();
         if (!isUnsuccessful(result.getStatus())) {
+            deleteQuietly(traceZip);
             return;
         }
         final String trace = ensureTrace(result);
         fillSteps(result.getSteps(), trace);
-        attachTrace(result, trace);
+        if (traceZip != null) {
+            attachTraceZip(result, traceZip);
+            deleteQuietly(traceZip);
+        } else {
+            attachTextTrace(result, trace);
+        }
     }
 
-    private static void attachTrace(final TestResult result, final String trace) {
+    private static void attachTraceZip(final TestResult result, final Path traceZip) {
+        final String source = UUID.randomUUID() + "-attachment.zip";
+        final Path directory = resultsDirectory();
+        try {
+            Files.createDirectories(directory);
+            Files.copy(traceZip, directory.resolve(source));
+        } catch (IOException exception) {
+            throw new IllegalStateException("Cannot write Playwright trace", exception);
+        }
+        result.getAttachments().add(new Attachment()
+                .setName("trace.zip")
+                .setType("application/zip")
+                .setSource(source));
+    }
+
+    private static void attachTextTrace(final TestResult result, final String trace) {
         final String source = UUID.randomUUID() + "-attachment.txt";
-        final Path directory = Paths.get(System.getProperty("allure.results.directory", "build/allure-results"));
+        final Path directory = resultsDirectory();
         try {
             Files.createDirectories(directory);
             Files.write(directory.resolve(source), trace.getBytes(StandardCharsets.UTF_8));
-        } catch (IOException e) {
-            throw new IllegalStateException("Cannot write failure trace", e);
+        } catch (IOException exception) {
+            throw new IllegalStateException("Cannot write failure trace", exception);
         }
         result.getAttachments().add(new Attachment()
                 .setName("trace")
                 .setType("text/plain")
                 .setSource(source));
+    }
+
+    private static Path resultsDirectory() {
+        return Paths.get(System.getProperty("allure.results.directory", "build/allure-results"));
+    }
+
+    private static void deleteQuietly(final Path path) {
+        if (path == null) {
+            return;
+        }
+        try {
+            Files.deleteIfExists(path);
+        } catch (IOException ignored) {
+            // temporary trace is no longer needed
+        }
     }
 
     private static String ensureTrace(final TestResult result) {

@@ -42,6 +42,8 @@ jobs:
           chmod +x testopsctl
           sudo mv testopsctl /usr/local/bin/testopsctl
           testopsctl --version
+      - name: Install Playwright Chromium
+        run: ./gradlew installPlaywrightChromium -PwithDeps
       - name: Build with Gradle
         run: |
           testopsctl watch -- ./gradlew clean test

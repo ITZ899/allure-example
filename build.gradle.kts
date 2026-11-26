@@ -55,8 +55,23 @@ repositories {
 dependencies {
     implementation("commons-io:commons-io:2.6")
     implementation("io.qameta.allure:allure-java-commons:$allureAdapterVersion")
+    implementation("com.microsoft.playwright:playwright:1.49.0")
     implementation("org.junit.jupiter:junit-jupiter-api:5.7.2")
     implementation("org.junit.jupiter:junit-jupiter-engine:5.7.2")
     implementation("org.junit.jupiter:junit-jupiter-params:5.7.2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+tasks.register<JavaExec>("installPlaywrightChromium") {
+    group = "verification"
+    description = "Download Playwright Chromium. On Linux CI pass -PwithDeps."
+    classpath = sourceSets.main.get().runtimeClasspath
+    mainClass.set("com.microsoft.playwright.CLI")
+    args(buildList {
+        add("install")
+        if (project.hasProperty("withDeps")) {
+            add("--with-deps")
+        }
+        add("chromium")
+    })
 }
