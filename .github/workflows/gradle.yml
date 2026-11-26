@@ -36,19 +36,16 @@ jobs:
         with:
           java-version: "17"
           distribution: "temurin"
-      - name: install and configure allurectl
-        uses: allure-framework/setup-allurectl@v1
-        with:
-          # Pin below 2.22.0: that release uploads process globals via
-          # POST /api/launch/attachment, which currently returns 500 on TestOps.
-          allurectl-version: "2.21.1"
-          allure-endpoint: ${{ secrets.ALLURE_ENDPOINT }}
-          allure-token: ${{ secrets.ALLURE_TOKEN }}
-          allure-project-id: ${{ secrets.ALLURE_PROJECT_ID }}
+      - name: Install testopsctl
+        run: |
+          curl -fsSL "https://dl.qatools.ru/repository/public/testopsctl/0.0.12/testopsctl_linux_amd64" -o testopsctl
+          chmod +x testopsctl
+          sudo mv testopsctl /usr/local/bin/testopsctl
+          testopsctl --version
       - name: Build with Gradle
-        run: | 
-          allurectl watch -- ./gradlew clean test
-          export $( allurectl job-run env)
+        run: |
+          testopsctl watch -- ./gradlew clean test
+          export $(testopsctl job-run env)
           printenv | grep TEST_
           printenv | grep ALLURE_
         env:
