@@ -50,7 +50,7 @@ public final class FailureTraceListener implements TestLifecycleListener {
         }
         result.getAttachments().add(new Attachment()
                 .setName("trace.zip")
-                .setType("application/zip")
+                .setType("application/vnd.allure.playwright-trace")
                 .setSource(source));
     }
 
